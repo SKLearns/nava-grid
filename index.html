@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Psychosomatic Bodywork — release · recognition · resilience</title>
+<meta name="description" content="Hands-on bodywork and somatic therapy for people moving through burnout, transition, or the kind of stuck that talking hasn't touched.">
+
+<!-- distinctive type: soft serif + calm grotesk -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/grid.css">
+<style>
+  /* page-specific tweaks only — the system lives in grid.css */
+  .cell--hero .cell__inner{ padding:clamp(20px,3vw,40px); }
+  .cell--hero p{
+    font-family:var(--display); font-weight:330;
+    font-size:clamp(1.4rem,2.6vw,2.2rem); line-height:1.16;
+    color:var(--ink);
+  }
+  .cell--hero .lede{
+    font-family:var(--body); font-weight:400;
+    font-size:clamp(.95rem,1.2vw,1.05rem); line-height:1.5;
+    color:var(--ink-soft); margin-top:1em;
+  }
+  .eyebrow{ font-size:.74rem; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:.7em; }
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER / NAV ============ -->
+<header class="site-head">
+  <div class="brand">— psychosomatic bodywork</div>
+  <nav class="nav">
+    <a href="index.html">Home</a>
+    <a href="offerings.html">Offerings</a>
+    <a href="article.html">Journal</a>
+    <a href="reviews.html">Reviews</a>
+    <a href="booking.html">Book</a>
+  </nav>
+</header>
+
+<!-- ============ THE LATTICE ============
+   HOW TO TOGGLE LINES:  edit each cell's  data-edges  attribute.
+     data-edges="t r b l"  → all four sides
+     data-edges="b"        → only the bottom line
+     (remove the attribute) → no lines on that cell
+   HOW TO RESIZE A BLOCK:  edit  data-span  ("1x1","2x2","2x1","1x2"…)
+   RECOLOUR ONE CELL'S LINES:  add  style="--cell-line:#c8a24a"
+======================================================================= -->
+<main class="grid">
+
+  <!-- HERO TEXT (2×2 cream block) -->
+  <div class="cell cell--paper cell--hero" data-span="2x2" data-edges="t r b l">
+    <div class="cell__inner">
+      <div class="eyebrow">release · recognition · resilience</div>
+      <p>Some things don&rsquo;t shift through talking alone.</p>
+      <p class="lede">When the body holds what the mind can&rsquo;t resolve, the work becomes
+        physical. I offer hands-on bodywork and somatic therapy for people moving through
+        burnout, transition, or the kind of stuck that therapy hasn&rsquo;t touched.</p>
+    </div>
+  </div>
+
+  <!-- HERO IMAGE (2×2) -->
+  <div class="cell cell--image" data-span="2x2" data-edges="t r b l">
+    <div class="cell__media"><img src="assets/img/hands.svg" alt="Hands-on bodywork"></div>
+    <div class="cell__caption">hands-on bodywork</div>
+  </div>
+
+  <!-- DISPLAY WORD -->
+  <div class="cell cell--word" data-edges="t r b l">
+    <span class="word">recognition</span>
+  </div>
+
+  <!-- BRIEF TEXT -->
+  <div class="cell cell--text" data-edges="t r b l">
+    <div class="cell__inner">
+      <h3>A responsive practice</h3>
+      Each session begins with a conversation — not to take a history, but to understand
+      what your body is carrying right now.
+    </div>
+  </div>
+
+  <!-- SINGLE IMAGE -->
+  <div class="cell cell--image" data-edges="t r b l">
+    <div class="cell__media"><img src="assets/img/oils.svg" alt="Ayurvedic oils"></div>
+  </div>
+
+  <!-- SINGLE IMAGE -->
+  <div class="cell cell--image" data-edges="t r b l">
+    <div class="cell__media"><img src="assets/img/still.svg" alt="Stillness"></div>
+  </div>
+
+  <!-- PULL QUOTE (2×1) -->
+  <div class="cell cell--quote cell--paper" data-span="2x1" data-edges="t r b l">
+    <blockquote>
+      Not fixing — recognising. And from recognition, choosing.
+      <cite>the work of psychosomatic release</cite>
+    </blockquote>
+  </div>
+
+  <!-- WIDE IMAGE (2×1) -->
+  <div class="cell cell--image" data-span="2x1" data-edges="t r b l">
+    <div class="cell__media"><img src="assets/img/forest.svg" alt="Forest bathing"></div>
+    <div class="cell__caption">forest bathing</div>
+  </div>
+
+  <!-- OFFERINGS — three cards + a link cell -->
+  <div class="cell cell--offer cell--paper" data-edges="t r b l">
+    <div class="cell__inner">
+      <h3>Body Therapy</h3>
+      <p>Deep tissue, Thai bodywork &amp; abhyanga across 3–4 sessions, sequenced to release held tension.</p>
+      <div class="price">3–4 sessions · from £80</div>
+    </div>
+  </div>
+
+  <div class="cell cell--offer cell--paper" data-edges="t r b l">
+    <div class="cell__inner">
+      <h3>Detox Package</h3>
+      <p>Ayurvedic purgation, medicated oils &amp; a personalised diet plan — a genuine reset.</p>
+      <div class="price">3–4 sessions + diet support</div>
+    </div>
+  </div>
+
+  <div class="cell cell--offer cell--paper" data-edges="t r b l">
+    <div class="cell__inner">
+      <h3>Mental Clarity &amp; Somatic</h3>
+      <p>Somatic bodywork, breath, shirodhara, forest bathing &amp; Reiki, for when talking has hit its ceiling.</p>
+      <div class="price">tailored programme</div>
+    </div>
+  </div>
+
+  <div class="cell cell--cta" data-edges="t r b l">
+    <a class="btn btn--ghost" href="offerings.html">See all offerings →</a>
+  </div>
+
+  <!-- REVIEWS in line (these also appear throughout via the review card) -->
+  <div class="cell cell--review cell--paper" data-span="2x1" data-edges="t r b l">
+    <div class="cell__inner">
+      <div class="stars">★★★★★</div>
+      <p>“I came in for neck tension and left understanding something I&rsquo;d been avoiding for years.”</p>
+      <div class="who">— placeholder · replace with a real testimonial</div>
+    </div>
+  </div>
+
+  <div class="cell cell--review cell--paper" data-span="2x1" data-edges="t r b l">
+    <div class="cell__inner">
+      <div class="stars">★★★★★</div>
+      <p>“The most considered, unhurried bodywork I&rsquo;ve experienced. I felt safe the whole way through.”</p>
+      <div class="who">— placeholder · replace with a real testimonial</div>
+    </div>
+  </div>
+
+  <!-- CLOSING CTA (2×2) -->
+  <div class="cell cell--cta cell--paper" data-span="2x2" data-edges="t r b l">
+    <div class="cell__inner" style="text-align:left">
+      <div class="eyebrow">first visit</div>
+      <p style="font-family:var(--display);font-size:clamp(1.3rem,2.4vw,1.9rem);line-height:1.15;margin-bottom:.6em">
+        A first session is part conversation, part examination — to find where the work begins.</p>
+      <a class="btn" href="booking.html">Book a first session</a>
+    </div>
+  </div>
+
+  <!-- CLOSING IMAGE (2×2) -->
+  <div class="cell cell--image" data-span="2x2" data-edges="t r b l">
+    <div class="cell__media"><img src="assets/img/breath.svg" alt="Breath and stillness"></div>
+    <div class="cell__caption">breath · meditation · integration</div>
+  </div>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-foot">
+  <strong>psychosomatic bodywork</strong><br>
+  Open to all bodies, genderqueer identities, and neurodiverse people.<br>
+  <a href="booking.html">Book a session</a> &nbsp;·&nbsp;
+  <a href="article.html">Read the journal</a> &nbsp;·&nbsp;
+  hello@yourdomain.com
+</footer>
+
+<script src="assets/grid.js"></script>
+</body>
+</html>
