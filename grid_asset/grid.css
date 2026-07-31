@@ -29,7 +29,7 @@
   --line-color:  #ffffff;    /* colour of the lattice lines              */
   --line-width:  5px;        /* thickness of the lines                   */
   --tick:        12px;       /* how far lines overshoot each corner      */
-  --grid-bg:     #a6dd9c;    /* the green of the cells / canvas          */
+  --grid-bg:     #C5D7BF;    /* the green of the cells / canvas          */
 
   /* ---- secondary palette ---- */
   --cell-bg:     var(--grid-bg);   /* default cell fill (override per cell) */
@@ -62,9 +62,13 @@ body{
 .grid{
   display:grid;
   grid-template-columns:repeat(var(--cols), 1fr);
-  grid-auto-rows:var(--unit, 25vw);   /* JS overwrites --unit with px     */
+  grid-auto-rows:var(--unit, 120px);  /* JS overwrites --unit with px     */
   padding:calc(var(--tick) + 4px);
   background:var(--grid-bg);
+  /* centre the grid at 50% of a standard desktop viewport */
+  max-width:720px;
+  width:100%;
+  margin:0 auto;
 }
 
 /* ---------------------------------------------------------------------
@@ -116,13 +120,21 @@ body{
    ===================================================================== */
 
 /* shared inner padding wrapper for text cells */
-.cell__inner{ padding:clamp(14px, 2vw, 30px); width:100%; }
+.cell__inner{
+  padding:clamp(8px, 1vw, 14px);
+  width:100%;
+  /* clip text content without breaking the gridline ticks that live on .cell */
+  overflow:hidden;
+  max-height:100%;
+}
 
 /* --- cream / paper cell for legible text blocks --- */
 .cell--paper{ --cell-bg:var(--paper); }
 
 /* --- IMAGE cell: media is absolutely filled + clipped --- */
-.cell--image{ padding:0; }
+/* z-index raises the image cell above its neighbours so their gridline tick
+   overhangs render underneath the image rather than crossing into it */
+.cell--image{ padding:0; position:relative; z-index:2; }
 .cell__media{
   position:absolute; inset:0;
   overflow:hidden;
@@ -142,31 +154,31 @@ body{
 }
 
 /* --- BIG DISPLAY WORD (e.g. "recognition") --- */
-.cell--word{ justify-content:center; align-items:flex-start; }
+.cell--word{ justify-content:center; align-items:flex-start; overflow:hidden; }
 .cell--word .word{
   font-family:var(--display);
   font-weight:340;
-  font-size:clamp(1.6rem, 4.2vw, 3.1rem);
+  font-size:clamp(1rem, 1.8vw, 1.4rem);
   line-height:.98;
   letter-spacing:-.01em;
-  padding:0 clamp(14px,2vw,26px);
+  padding:0 clamp(8px,1vw,14px);
 }
 
 /* --- BRIEF TEXT --- */
-.cell--text .cell__inner{ font-size:clamp(.95rem,1.15vw,1.06rem); color:var(--ink-soft); }
+.cell--text .cell__inner{ font-size:clamp(.7rem,.85vw,.82rem); color:var(--ink-soft); }
 .cell--text h3{
   font-family:var(--display); font-weight:430; color:var(--ink);
-  font-size:1.15rem; margin-bottom:.4em; letter-spacing:.005em;
+  font-size:.88rem; margin-bottom:.3em; letter-spacing:.005em;
 }
 
 /* --- PULL QUOTE --- */
-.cell--quote{ justify-content:center; }
+.cell--quote{ justify-content:center; overflow:hidden; }
 .cell--quote blockquote{
   font-family:var(--display);
   font-weight:360; font-style:italic;
-  font-size:clamp(1.1rem, 2.1vw, 1.7rem);
+  font-size:clamp(.78rem, 1.1vw, 1rem);
   line-height:1.25;
-  padding:0 clamp(16px,2.2vw,30px);
+  padding:0 clamp(8px,1vw,14px);
   color:var(--ink);
 }
 .cell--quote cite{
@@ -178,14 +190,14 @@ body{
 
 /* --- REVIEW / TESTIMONIAL card --- */
 .cell--review{ justify-content:space-between; }
-.cell--review .stars{ font-size:.9rem; letter-spacing:.15em; color:var(--accent); }
-.cell--review p{ font-size:clamp(.92rem,1.2vw,1.05rem); margin:.6em 0; }
-.cell--review .who{ font-size:.76rem; letter-spacing:.07em; text-transform:uppercase; color:var(--ink-soft); }
+.cell--review .stars{ font-size:.72rem; letter-spacing:.1em; color:var(--accent); }
+.cell--review p{ font-size:clamp(.7rem,.9vw,.8rem); margin:.4em 0; }
+.cell--review .who{ font-size:.65rem; letter-spacing:.05em; text-transform:uppercase; color:var(--ink-soft); }
 
 /* --- OFFERING card --- */
-.cell--offer h3{ font-family:var(--display); font-weight:440; font-size:1.25rem; }
-.cell--offer .price{ margin-top:auto; font-size:.85rem; letter-spacing:.05em; color:var(--ink-soft); }
-.cell--offer p{ font-size:.92rem; color:var(--ink-soft); margin-top:.4em; }
+.cell--offer h3{ font-family:var(--display); font-weight:440; font-size:.88rem; }
+.cell--offer .price{ margin-top:auto; font-size:.68rem; letter-spacing:.04em; color:var(--ink-soft); }
+.cell--offer p{ font-size:.72rem; color:var(--ink-soft); margin-top:.3em; }
 
 /* --- ARTICLE TEASER (scrolls if it overflows its square footprint) --- */
 .cell--article .cell__inner{ overflow:auto; max-height:100%; }
@@ -248,14 +260,14 @@ body{
 /* =====================================================================
    RESPONSIVE — collapse the lattice on small screens
    ===================================================================== */
-@media (max-width:760px){
+/* grid is fixed at 720px — reflow when viewport is narrower than the grid */
+@media (max-width:720px){
   :root{ --cols:2; --tick:8px; }
-  /* spans wider than the column count clamp down so nothing overflows */
   .cell[data-span="3x1"],
   .cell[data-span="4x1"]{ grid-column:span 2; }
   .cell[data-span="2x3"]{ grid-row:span 2; }
 }
-@media (max-width:440px){
+@media (max-width:280px){
   :root{ --cols:1; }
   .cell[data-span="2x2"],
   .cell[data-span="2x1"],
